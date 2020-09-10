@@ -19,15 +19,23 @@ services:
       - DOCKER_HOST=tcp://docker:2376
       - DOCKER_CERT_PATH=/certs/client
       - DOCKER_TLS_VERIFY=1
-      - JENKINS_OPTS="--httpPort=8082"
+      - JENKINS_OPTS="--httpPort=${JENKINS_PORT}"
     volumes: 
       - jenkins-data:/var/jenkins_home
       - jenkins-docker-certs:/certs/client:ro
       - $HOME:/home
     ports:
-        - "8082:8082"
+        - "${JENKINS_PORT}:${JENKINS_PORT}"
   socketxp:
-    build: ./socketxp/
+    env_file: 
+      - .env
+    build: 
+      context: ./socketxp
+      dockerfile: Dockerfile
+      args: 
+        - AUTH_TOKEN=${TOKEN}
+        - JENKINS=${JENKINS_HOST}
+        - PORT=${JENKINS_PORT}
 
 volumes:
   jenkins-docker-certs:
