@@ -1,0 +1,17 @@
+{
+    "authtoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDIzMjY2MjQsImlkIjoiaXZhbmx5bmNoQGdpdGh1Yi5jb20ifQ.RhCXXKyUQlgwjzGYhGDlMQVEWdRVqyD99UBziHqdao4",
+    "tunnel_enabled": true,
+    "tunnels": [
+        {
+            "destination": "http://192.168.0.10:8080/github-webhook/",
+            "protocol": "http",
+            "custom_domain": "*"
+        }
+    ],
+    "relay_enabled": false,
+    "relays": [
+        {
+            "destination": "http://192.168.0.10:8080/github-webhook/"
+        }
+    ]
+}
