@@ -6,4 +6,4 @@ RUN /bin/bash -c "curl -O https://portal.socketxp.com/download/linux/socketxp &&
 
 RUN /bin/bash -c 'socketxp login "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MDIzMjY2MjQsImlkIjoiaXZhbmx5bmNoQGdpdGh1Yi5jb20ifQ.RhCXXKyUQlgwjzGYhGDlMQVEWdRVqyD99UBziHqdao4"'
 
-RUN /bin/bash -c "socketxp connect http://192.168.0.10:8080/github-webhook/"    
+RUN /bin/bash -c "socketxp relay http://192.168.0.10:8082/github-webhook/"
